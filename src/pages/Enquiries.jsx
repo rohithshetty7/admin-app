@@ -4,7 +4,7 @@ import { Table } from "antd";
 
 import { AiFillDelete, AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import CustomModal from "../components/CustomModal";
+import CustomModal from "../components/CustomModal";
 
 const columns = [
   {
@@ -55,12 +55,12 @@ const Enquiries = () => {
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>
-      {/* <CustomModal
+      <CustomModal
         hideModal={hideModal}
         open={open}
         
         title="Are you sure you want to delete this enquiry?"
-      /> */}
+      />
     </div>
   );
 };

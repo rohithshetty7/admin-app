@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 //   resetState,
 // } from "../features/pcategory/pcategorySlice";
 import CustomModal from "../components/CustomModal";
+import { getProductsCategories } from "../features/productCategery/productCatSlice";
 
 const columns = [
   {
@@ -39,47 +40,48 @@ const Categorylist = () => {
 //   const hideModal = () => {
 //     setOpen(false);
 //   };
-//   const dispatch = useDispatch();
-//   useEffect(() => {
-//     dispatch(resetState());
-//     dispatch(getCategories());
-//   }, []);
-//   const pCatStat = useSelector((state) => state.pCategory.pCategories);
-//   const data1 = [];
-//   for (let i = 0; i < pCatStat.length; i++) {
-//     data1.push({
-//       key: i + 1,
-//       name: pCatStat[i].title,
-//       action: (
-//         <>
-//           <Link
-//             to={`/admin/category/${pCatStat[i]._id}`}
-//             className=" fs-3 text-danger"
-//           >
-//             <BiEdit />
-//           </Link>
-//           <button
-//             className="ms-3 fs-3 text-danger bg-transparent border-0"
-//             onClick={() => showModal(pCatStat[i]._id)}
-//           >
-//             <AiFillDelete />
-//           </button>
-//         </>
-//       ),
-//     });
-//   }
-//   const deleteCategory = (e) => {
-//     dispatch(deleteAProductCategory(e));
-//     setOpen(false);
-//     setTimeout(() => {
-//       dispatch(getCategories());
-//     }, 100);
-//   };
-  return (
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // dispatch(resetState());
+    dispatch(getProductsCategories());
+  }, []);
+  const pCatStat = useSelector((state) => state.productsCategories.productsCategories);
+  const data1 = [];
+  for (let i = 0; i < pCatStat.length; i++) {
+    data1.push({
+      key: i + 1,
+      name: pCatStat[i].title,
+      action: (
+        <>
+          <Link
+            to={`/admin/category/${pCatStat[i]._id}`}
+            className=" fs-3 text-danger"
+          >
+            <BiEdit />
+          </Link>
+          <button
+            className="ms-3 fs-3 text-danger bg-transparent border-0"
+            // onClick={() => showModal(pCatStat[i]._id)}
+          >
+            <AiFillDelete />
+          </button>
+        </>
+      ),
+    });
+  }
+  // const deleteCategory = (e) => {
+  //   dispatch(deleteAProductCategory(e));
+  //   setOpen(false);
+  //   setTimeout(() => {
+  //     dispatch(getCategories());
+  //   }, 100);
+  // };
+ 
+return (
     <div>
       <h3 className="mb-4 title">Product Categories</h3>
       <div>
-        <Table columns={columns} dataSource={[]} />
+        <Table columns={columns} dataSource={data1} />
       </div>
       <CustomModal
         // hideModal={hideModal}

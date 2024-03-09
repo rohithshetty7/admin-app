@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import MainLayout from './components/MainLayout';
 import Dashboard from './pages/Dashboard';
 import Enquiries from './pages/Enquiries';
-import Bloglist from './pages/BloBloglist';
+import Bloglist from './pages/Bloglist';
 import Blogcatlist from './pages/Blogcatlist';
 import Orders from './pages/Orders';
 import Resetpassword from './pages/ResetPassword';

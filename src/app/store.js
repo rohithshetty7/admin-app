@@ -8,7 +8,6 @@ import productCategoriesReducer from "../features/productCategery/productCatSlic
 import blogsReducer from "../features/blogs/blogSlice";
 import blogsCategoryReducer from "../features/blogsCategory/blogsCategorySlice"
 import enquiryReducer from "../features/enquiry/enquirySlice"
-import orderReducer from "../features/order/orderSlice"
 
 export const store = configureStore({
     reducer: {
@@ -21,7 +20,6 @@ export const store = configureStore({
         blogs: blogsReducer,
         blogsCategory: blogsCategoryReducer,
         enquiry: enquiryReducer,
-        order: orderReducer
 
     },
 });

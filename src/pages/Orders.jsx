@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { getOrders } from "../features/order/orderSlice";
-// import { getOrders } from "../features/auth/authSlice";
+import { getOrders } from "../features/auth/authSlice";
 const columns = [
   {
     title: "SNo",
@@ -40,7 +39,7 @@ const Orders = () => {
     dispatch(getOrders());
   }, []);
   const orderState = useSelector((state) => state.auth.orders);
-
+console.log(orderState)
   const data1 = [];
   for (let i = 0; i < orderState.length; i++) {
     data1.push({
